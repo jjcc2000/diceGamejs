@@ -30,17 +30,27 @@ function toHold() {
     hs0 += toAdd;
     alert(hs0);
     ttlHSre0.textContent = hs0;
-    PlayerSwticher();
+    if (parseInt(ttlHSre0.textContent) >= 20) {
+      alert(`Player 1 has wom the game`);
+    } else {
+      PlayerSwticher();
+    }
+    toAdd = 0;
+    hs0 = 0;
   } else if (currentPlayer == 1) {
     let toAdd1 = parseInt(current1.textContent);
     let hs1 = parseInt(ttlHSre1.textContent);
     hs1 += toAdd1;
     alert(hs1);
     ttlHSre1.textContent = hs1;
-    PlayerSwticher();
+    if (parseInt(ttlHSre1.textContent) >= 20) {
+      alert('Player 2 has wom the game');
+    } else {
+      PlayerSwticher();
+    }
+    toAdd1 = 0;
+    hs1 = 0;
   }
-  toAdd = 0;
-  hs0 = 0;
 }
 //TODO:Player Switcher//
 function PlayerSwticher() {
