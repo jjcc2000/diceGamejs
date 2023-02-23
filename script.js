@@ -3,12 +3,12 @@ const btnNewGame = document.querySelector('.btn--new');
 const btnRollDice = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 const imgDice = document.querySelector('.dice');
-const scorePlayer1 = document.querySelector('#name--1');
-const scorePlayer0 = document.querySelector('#name--0');
 const current1 = document.querySelector('#current--1');
 const current0 = document.querySelector('#current--0');
 const ttlHSre1 = document.querySelector('#score--1');
 const ttlHSre0 = document.querySelector('#score--0');
+const lblPlayer1 = document.querySelector('.player--1');
+const lblPlayer0 = document.querySelector('.player--0');
 let currentPlayer = 0;
 let currentScore = 0;
 
@@ -31,7 +31,8 @@ function toHold() {
     alert(hs0);
     ttlHSre0.textContent = hs0;
     if (parseInt(ttlHSre0.textContent) >= 20) {
-      alert(`Player 1 has wom the game`);
+      lblPlayer0.classList.add('player--winner');
+      lblPlayer0.classList.remove('player--active');
     } else {
       PlayerSwticher();
     }
@@ -44,7 +45,8 @@ function toHold() {
     alert(hs1);
     ttlHSre1.textContent = hs1;
     if (parseInt(ttlHSre1.textContent) >= 20) {
-      alert('Player 2 has wom the game');
+      lblPlayer1.classList.add('player--winner');
+      lblPlayer1.classList.remove('player--active');
     } else {
       PlayerSwticher();
     }
@@ -56,8 +58,11 @@ function toHold() {
 function PlayerSwticher() {
   alert('Is the next player turn');
   document.getElementById(`current--${currentPlayer}`).textContent = 0;
+  document.getElementsByClassName(``);
   currentPlayer = currentPlayer === 0 ? 1 : 0;
   currentScore = 0;
+  lblPlayer1.classList.toggle('player--active');
+  lblPlayer0.classList.toggle('player--active');
 }
 
 btnRollDice.addEventListener('click', function () {
